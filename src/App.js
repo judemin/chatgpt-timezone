@@ -7,20 +7,20 @@ import {
   CardContent,
   CardHeader,
   Select,
-  MenuItem
+  MenuItem,
 } from "@mui/material";
 
 // An array of country time zones
 const countryTimeZones = [
   { country: "South Korea", timeZone: "Asia/Seoul" },
   { country: "United States", timeZone: "America/New_York" },
-  { country: "United Kingdom", timeZone: "Europe/London" }
+  { country: "United Kingdom", timeZone: "Europe/London" },
   // Add more countries and time zones as needed
 ];
 
 // Styling for the card
 const cardStyle = {
-  marginTop: "16px"
+  marginTop: "16px",
 };
 
 const App = () => {
@@ -47,14 +47,15 @@ const App = () => {
 
   // Function to get the converted time for the selected country
   const getConvertedTime = (country) => {
-    const timeZone = countryTimeZones.find((ct) => ct.country === country)
-      ?.timeZone;
+    const timeZone = countryTimeZones.find(
+      (ct) => ct.country === country
+    )?.timeZone;
     if (!timeZone) return "Invalid country selection";
     const koreanDate = new Date().toLocaleString("en-US", {
-      timeZone: "Asia/Seoul"
+      timeZone: "Asia/Seoul",
     });
     const convertedDate = new Date(koreanDate).toLocaleString("en-US", {
-      timeZone
+      timeZone,
     });
     return convertedDate;
   };
